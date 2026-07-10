@@ -9,26 +9,793 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="description"
-        content="Vaultora demonstration workspace form."
-    >
-
     <title>Vaultora | Workspace Form</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        :root {
+            --background: #070b0f;
+            --panel: #0d141a;
+            --panel-soft: #10181f;
+            --border: rgba(255, 255, 255, 0.09);
+            --border-focus: rgba(112, 225, 181, 0.55);
+
+            --text: #f3f7f8;
+            --secondary: #8b989f;
+            --muted: #56636b;
+
+            --accent: #70e1b5;
+            --accent-soft: rgba(112, 225, 181, 0.08);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(112, 225, 181, 0.07),
+                    transparent 32%
+                ),
+                var(--background);
+
+            color: var(--text);
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            line-height: 1.5;
+        }
+
+
+        button,
+        input {
+            font: inherit;
+        }
+
+
+        /* =====================================================
+           DEMO NOTICE
+        ===================================================== */
+
+        .demo-bar {
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 0 20px;
+
+            background: #0c1512;
+
+            border-bottom:
+                1px solid rgba(112, 225, 181, 0.15);
+
+            color: var(--accent);
+
+            font-size: 9px;
+            font-weight: 750;
+
+            letter-spacing: 0.13em;
+        }
+
+
+        .demo-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            box-shadow:
+                0 0 10px rgba(112, 225, 181, 0.75);
+        }
+
+
+        .demo-description {
+            color: #68766f;
+
+            font-weight: 500;
+
+            letter-spacing: 0;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            height: 76px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                auto
+                1fr;
+
+            align-items: center;
+
+            padding: 0 38px;
+
+            border-bottom: 1px solid var(--border);
+
+            background:
+                rgba(7, 11, 15, 0.84);
+
+            backdrop-filter: blur(20px);
+        }
+
+
+        .back-link {
+            justify-self: start;
+
+            color: var(--secondary);
+
+            font-size: 11px;
+            font-weight: 550;
+
+            text-decoration: none;
+
+            transition:
+                color 160ms ease;
+        }
+
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            text-decoration: none;
+        }
+
+
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid rgba(112, 225, 181, 0.25);
+
+            border-radius: 10px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent);
+
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+
+        .brand-name {
+            color: var(--text);
+
+            font-size: 16px;
+            font-weight: 650;
+
+            letter-spacing: -0.03em;
+        }
+
+
+        .session {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            justify-self: end;
+
+            color: var(--secondary);
+
+            font-size: 9px;
+        }
+
+
+        .session-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .page {
+            width: 100%;
+            max-width: 780px;
+
+            margin: 0 auto;
+
+            padding: 70px 24px 90px;
+        }
+
+
+        .page-label {
+            color: var(--accent);
+
+            font-size: 8px;
+            font-weight: 800;
+
+            letter-spacing: 0.18em;
+        }
+
+
+        h1 {
+            margin-top: 14px;
+
+            color: var(--text);
+
+            font-size: clamp(34px, 6vw, 52px);
+            font-weight: 560;
+
+            letter-spacing: -0.055em;
+
+            line-height: 1.05;
+        }
+
+
+        .intro {
+            max-width: 540px;
+
+            margin-top: 16px;
+
+            color: var(--secondary);
+
+            font-size: 12px;
+
+            line-height: 1.75;
+        }
+
+
+        /* =====================================================
+           PROGRESS
+        ===================================================== */
+
+        .progress-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 46px;
+            margin-bottom: 11px;
+        }
+
+
+        .progress-header span {
+            color: var(--muted);
+
+            font-size: 8px;
+            font-weight: 750;
+
+            letter-spacing: 0.13em;
+        }
+
+
+        #progressText {
+            color: var(--accent);
+
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+
+        .progress-track {
+            width: 100%;
+            height: 3px;
+
+            margin-bottom: 18px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            overflow: hidden;
+        }
+
+
+        #progressBar {
+            width: 0%;
+            height: 100%;
+
+            background: var(--accent);
+
+            border-radius: inherit;
+
+            box-shadow:
+                0 0 15px rgba(112, 225, 181, 0.5);
+
+            transition:
+                width 300ms ease;
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
+
+        .form-card {
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.025),
+                    rgba(255, 255, 255, 0.01)
+                );
+
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .question {
+            display: grid;
+
+            grid-template-columns:
+                42px
+                minmax(0, 1fr);
+
+            gap: 20px;
+
+            padding: 32px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .question:last-of-type {
+            border-bottom: 0;
+        }
+
+
+        .question-number {
+            width: 32px;
+            height: 32px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid rgba(112, 225, 181, 0.16);
+
+            border-radius: 50%;
+
+            background: var(--accent-soft);
+
+            color: var(--accent);
+
+            font-size: 8px;
+            font-weight: 750;
+        }
+
+
+        .question-content label {
+            display: block;
+
+            color: var(--text);
+
+            font-size: 17px;
+            font-weight: 550;
+
+            letter-spacing: -0.025em;
+        }
+
+
+        .question-content p {
+            margin-top: 5px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+        }
+
+
+        .text-input {
+            width: 100%;
+            height: 50px;
+
+            margin-top: 19px;
+
+            padding: 0 15px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            outline: none;
+
+            background:
+                rgba(3, 7, 10, 0.42);
+
+            color: var(--text);
+
+            font-size: 11px;
+
+            transition:
+                border-color 160ms ease,
+                box-shadow 160ms ease,
+                background 160ms ease;
+        }
+
+
+        .text-input::placeholder {
+            color: #455159;
+        }
+
+
+        .text-input:hover {
+            border-color:
+                rgba(255, 255, 255, 0.16);
+        }
+
+
+        .text-input:focus {
+            border-color: var(--border-focus);
+
+            background:
+                rgba(112, 225, 181, 0.025);
+
+            box-shadow:
+                0 0 0 4px rgba(112, 225, 181, 0.05);
+        }
+
+
+        /* =====================================================
+           SUBMIT
+        ===================================================== */
+
+        .submit-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 25px 32px;
+
+            background:
+                rgba(255, 255, 255, 0.012);
+        }
+
+
+        .submit-info strong {
+            display: block;
+
+            color: var(--text);
+
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+
+        .submit-info span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 8px;
+        }
+
+
+        .submit-button {
+            min-width: 165px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            padding: 0 18px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background: var(--accent);
+
+            color: #07110d;
+
+            cursor: pointer;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            transition:
+                transform 160ms ease,
+                background 160ms ease;
+        }
+
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+
+            background: #85e7c2;
+        }
+
+
+        /* =====================================================
+           SUCCESS SCREEN
+        ===================================================== */
+
+        .success-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(3, 6, 9, 0.88);
+
+            backdrop-filter: blur(16px);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 200ms ease,
+                visibility 200ms ease;
+
+            z-index: 1000;
+        }
+
+
+        .success-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        .success-card {
+            width: 100%;
+            max-width: 430px;
+
+            padding: 42px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            background: var(--panel);
+
+            box-shadow:
+                0 50px 130px rgba(0, 0, 0, 0.65);
+
+            text-align: center;
+        }
+
+
+        .success-icon {
+            width: 54px;
+            height: 54px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 22px;
+
+            border:
+                1px solid rgba(112, 225, 181, 0.25);
+
+            border-radius: 50%;
+
+            background: var(--accent-soft);
+
+            color: var(--accent);
+
+            font-size: 18px;
+        }
+
+
+        .success-card h2 {
+            color: var(--text);
+
+            font-size: 26px;
+            font-weight: 560;
+
+            letter-spacing: -0.045em;
+        }
+
+
+        .success-card p {
+            margin: 12px auto 23px;
+
+            color: var(--secondary);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        .reference {
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255, 255, 255, 0.02);
+        }
+
+
+        .reference span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 7px;
+            font-weight: 750;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        .reference strong {
+            display: block;
+
+            margin-top: 6px;
+
+            color: var(--accent);
+
+            font-size: 10px;
+        }
+
+
+        .return-button {
+            width: 100%;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background: var(--accent);
+
+            color: #07110d;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .demo-description,
+            .session {
+                display: none;
+            }
+
+
+            .header {
+                grid-template-columns:
+                    1fr
+                    auto;
+
+                padding: 0 17px;
+            }
+
+
+            .brand {
+                justify-self: end;
+            }
+
+
+            .page {
+                padding:
+                    48px
+                    15px
+                    70px;
+            }
+
+
+            .question {
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+
+                padding: 25px 21px;
+            }
+
+
+            .question-number {
+                width: 29px;
+                height: 29px;
+            }
+
+
+            .submit-area {
+                align-items: stretch;
+                flex-direction: column;
+
+                padding: 23px 21px;
+            }
+
+
+            .submit-button {
+                width: 100%;
+            }
+
+
+            .success-card {
+                padding: 34px 24px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
-<body class="form-page-body premium-form-page">
-
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
+<body>
 
 
     <!-- DEMO NOTICE -->
 
-    <div class="demo-banner">
+    <div class="demo-bar">
 
         <span class="demo-dot"></span>
 
@@ -46,50 +813,35 @@
 
     <!-- HEADER -->
 
-    <header class="premium-form-header">
+    <header class="header">
 
         <a
             href="index.html"
-            class="premium-back-link"
+            class="back-link"
         >
-
-            <span class="premium-back-arrow">
-                ←
-            </span>
-
-            Workspace
-
+            ← Back to workspace
         </a>
 
 
         <a
             href="index.html"
-            class="premium-form-logo"
+            class="brand"
         >
 
-            <span class="premium-logo-mark">
+            <span class="brand-mark">
                 V
             </span>
 
-
-            <span class="premium-logo-copy">
-
-                <strong>
-                    Vaultora
-                </strong>
-
-                <small>
-                    Secure Workspace
-                </small>
-
+            <span class="brand-name">
+                Vaultora
             </span>
 
         </a>
 
 
-        <div class="premium-session-state">
+        <div class="session">
 
-            <span class="connection-dot"></span>
+            <span class="session-dot"></span>
 
             Protected session
 
@@ -99,531 +851,265 @@
 
 
 
-    <!-- MAIN FORM -->
+    <!-- PAGE -->
 
-    <main class="premium-form-shell">
+    <main class="page">
+
+        <span class="page-label">
+            WORKSPACE FORM
+        </span>
 
 
-        <!-- LEFT SIDE -->
+        <h1>
+            Void Cheque Form
+        </h1>
 
-        <aside class="premium-form-aside">
 
-            <div class="premium-aside-content">
+        <p class="intro">
+            Complete the four questions below to finish the
+            demonstration workflow.
+        </p>
 
-                <span class="premium-kicker">
-                    VAULTORA FORMS
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-header">
+
+            <span>
+                FORM PROGRESS
+            </span>
+
+            <strong id="progressText">
+                0 of 4 complete
+            </strong>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form
+            class="form-card"
+            id="vaultoraForm"
+        >
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    01
                 </span>
 
 
-                <h1>
-                    A simpler way to complete your workspace details.
-                </h1>
+                <div class="question-content">
 
-
-                <p>
-                    Complete the short demonstration form to continue.
-                    Your responses remain within this front-end demo experience.
-                </p>
-
-
-                <div class="premium-aside-divider"></div>
-
-
-                <div class="premium-security-point">
-
-                    <span class="premium-security-number">
-                        01
-                    </span>
-
-
-                    <div>
-
-                        <strong>
-                            Four quick questions
-                        </strong>
-
-                        <p>
-                            The form should take less than a minute to complete.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="premium-security-point">
-
-                    <span class="premium-security-number">
-                        02
-                    </span>
-
-
-                    <div>
-
-                        <strong>
-                            Demonstration only
-                        </strong>
-
-                        <p>
-                            Do not enter banking credentials or sensitive information.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="premium-security-point">
-
-                    <span class="premium-security-number">
-                        03
-                    </span>
-
-
-                    <div>
-
-                        <strong>
-                            Local experience
-                        </strong>
-
-                        <p>
-                            No external form submission is configured.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="premium-aside-footer">
-
-                <div class="premium-lock-symbol">
-
-                    <svg viewBox="0 0 24 24">
-
-                        <path
-                            d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v11H5V10Z"
-                        ></path>
-
-                    </svg>
-
-                </div>
-
-
-                <div>
-
-                    <strong>
-                        Vaultora Demo Security
-                    </strong>
-
-                    <span>
-                        Sensitive financial fields disabled
-                    </span>
-
-                </div>
-
-            </div>
-
-        </aside>
-
-
-
-        <!-- RIGHT SIDE -->
-
-        <section class="premium-form-area">
-
-
-            <div class="premium-form-heading">
-
-                <div>
-
-                    <span class="premium-form-step">
-                        WORKSPACE FORM
-                    </span>
-
-
-                    <h2>
-                        Void Cheque Form
-                    </h2>
+                    <label for="favouriteColour">
+                        What is your favourite colour?
+                    </label>
 
 
                     <p>
-                        Complete all required fields below.
+                        Enter your answer below.
                     </p>
 
-                </div>
 
-
-                <div class="premium-progress-value">
-
-                    <strong id="progressText">
-                        0 of 4 complete
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PROGRESS -->
-
-            <div class="premium-progress-track">
-
-                <div
-                    class="premium-progress-bar"
-                    id="progressBar"
-                ></div>
-
-            </div>
-
-
-
-            <!-- FORM -->
-
-            <form
-                id="vaultoraQuestionForm"
-                class="premium-question-form"
-            >
-
-
-                <!-- QUESTION 1 -->
-
-                <div class="premium-form-row">
-
-                    <div class="premium-question-meta">
-
-                        <span>
-                            01
-                        </span>
-
-                    </div>
-
-
-                    <div class="premium-question-main">
-
-                        <label for="favouriteColour">
-                            What is your favourite colour?
-                        </label>
-
-
-                        <p>
-                            Enter your preferred colour.
-                        </p>
-
-
-                        <input
-                            type="text"
-                            id="favouriteColour"
-                            name="favouriteColour"
-                            class="vaultora-text-input premium-text-input"
-                            placeholder="e.g. Midnight blue"
-                            autocomplete="off"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- QUESTION 2 -->
-
-                <div class="premium-form-row">
-
-                    <div class="premium-question-meta">
-
-                        <span>
-                            02
-                        </span>
-
-                    </div>
-
-
-                    <div class="premium-question-main">
-
-                        <label for="favouriteAnimal">
-                            What is your favourite animal?
-                        </label>
-
-
-                        <p>
-                            Enter the animal you prefer most.
-                        </p>
-
-
-                        <input
-                            type="text"
-                            id="favouriteAnimal"
-                            name="favouriteAnimal"
-                            class="vaultora-text-input premium-text-input"
-                            placeholder="e.g. Snow leopard"
-                            autocomplete="off"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- QUESTION 3 -->
-
-                <div class="premium-form-row">
-
-                    <div class="premium-question-meta">
-
-                        <span>
-                            03
-                        </span>
-
-                    </div>
-
-
-                    <div class="premium-question-main">
-
-                        <label for="favouriteCountry">
-                            What's your favourite country?
-                        </label>
-
-
-                        <p>
-                            Enter your preferred country.
-                        </p>
-
-
-                        <input
-                            type="text"
-                            id="favouriteCountry"
-                            name="favouriteCountry"
-                            class="vaultora-text-input premium-text-input"
-                            placeholder="e.g. Canada"
-                            autocomplete="off"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- QUESTION 4 -->
-
-                <div class="premium-form-row">
-
-                    <div class="premium-question-meta">
-
-                        <span>
-                            04
-                        </span>
-
-                    </div>
-
-
-                    <div class="premium-question-main">
-
-                        <label>
-                            Do you like dogs or cats?
-                        </label>
-
-
-                        <p>
-                            Choose your preference.
-                        </p>
-
-
-                        <div class="premium-choice-grid">
-
-
-                            <label class="premium-choice-option">
-
-                                <input
-                                    type="radio"
-                                    name="petPreference"
-                                    value="Dogs"
-                                    required
-                                >
-
-
-                                <span class="premium-choice-inner">
-
-                                    <span class="premium-choice-letter">
-                                        D
-                                    </span>
-
-
-                                    <span class="premium-choice-text">
-
-                                        <strong>
-                                            Dogs
-                                        </strong>
-
-                                        <small>
-                                            Select dogs
-                                        </small>
-
-                                    </span>
-
-
-                                    <span class="premium-radio">
-
-                                        <span></span>
-
-                                    </span>
-
-                                </span>
-
-                            </label>
-
-
-
-                            <label class="premium-choice-option">
-
-                                <input
-                                    type="radio"
-                                    name="petPreference"
-                                    value="Cats"
-                                    required
-                                >
-
-
-                                <span class="premium-choice-inner">
-
-                                    <span class="premium-choice-letter">
-                                        C
-                                    </span>
-
-
-                                    <span class="premium-choice-text">
-
-                                        <strong>
-                                            Cats
-                                        </strong>
-
-                                        <small>
-                                            Select cats
-                                        </small>
-
-                                    </span>
-
-
-                                    <span class="premium-radio">
-
-                                        <span></span>
-
-                                    </span>
-
-                                </span>
-
-                            </label>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- SUBMIT -->
-
-                <div class="premium-submit-area">
-
-                    <div class="premium-submit-copy">
-
-                        <span class="connection-dot"></span>
-
-
-                        <span>
-                            Review your responses before continuing.
-                        </span>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="premium-submit-button"
+                    <input
+                        type="text"
+                        id="favouriteColour"
+                        class="text-input question-input"
+                        placeholder="Your answer"
+                        autocomplete="off"
+                        required
                     >
 
-                        Submit form
+                </div>
 
-                        <span>
-                            →
-                        </span>
+            </div>
 
-                    </button>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    02
+                </span>
+
+
+                <div class="question-content">
+
+                    <label for="favouriteAnimal">
+                        What is your favourite animal?
+                    </label>
+
+
+                    <p>
+                        Enter your answer below.
+                    </p>
+
+
+                    <input
+                        type="text"
+                        id="favouriteAnimal"
+                        class="text-input question-input"
+                        placeholder="Your answer"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    03
+                </span>
+
+
+                <div class="question-content">
+
+                    <label for="favouriteCountry">
+                        What's your favourite country?
+                    </label>
+
+
+                    <p>
+                        Enter your answer below.
+                    </p>
+
+
+                    <input
+                        type="text"
+                        id="favouriteCountry"
+                        class="text-input question-input"
+                        placeholder="Your answer"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION 4 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    04
+                </span>
+
+
+                <div class="question-content">
+
+                    <label for="dogOrCats">
+                        Do you like dogs or cats?
+                    </label>
+
+
+                    <p>
+                        Enter your answer below.
+                    </p>
+
+
+                    <input
+                        type="text"
+                        id="dogOrCats"
+                        class="text-input question-input"
+                        placeholder="Your answer"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <div class="submit-area">
+
+                <div class="submit-info">
+
+                    <strong>
+                        Complete all required fields
+                    </strong>
+
+                    <span>
+                        Review your answers before submitting.
+                    </span>
 
                 </div>
 
 
-            </form>
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
 
+                    Submit form
 
-            <footer class="premium-form-footer">
+                    <span>
+                        →
+                    </span>
 
-                <span>
-                    © 2026 Vaultora
-                </span>
+                </button>
 
+            </div>
 
-                <span>
-                    Demonstration workspace
-                </span>
-
-            </footer>
-
-        </section>
+        </form>
 
     </main>
 
 
 
-    <!-- SUCCESS SCREEN -->
+    <!-- SUCCESS -->
 
     <div
-        class="form-success-overlay premium-success-overlay"
-        id="formSuccessOverlay"
+        class="success-overlay"
+        id="successOverlay"
     >
 
-        <div class="premium-success-card">
+        <div class="success-card">
 
-
-            <div class="premium-success-icon">
-
-                <svg viewBox="0 0 24 24">
-
-                    <path d="m5 12 4 4L19 6"></path>
-
-                </svg>
-
+            <div class="success-icon">
+                ✓
             </div>
 
 
-            <span class="premium-kicker">
-                SUBMISSION COMPLETE
-            </span>
-
-
             <h2>
-                Your form has been completed.
+                Form submitted.
             </h2>
 
 
             <p>
-                The demonstration workflow was completed successfully.
-                No banking credentials or sensitive financial information
-                were requested.
+                Your demonstration form has been completed successfully.
             </p>
 
 
-            <div class="premium-reference-box">
+            <div class="reference">
 
                 <span>
                     SUBMISSION REFERENCE
@@ -639,15 +1125,9 @@
 
             <a
                 href="index.html"
-                class="premium-success-button"
+                class="return-button"
             >
-
                 Return to workspace
-
-                <span>
-                    →
-                </span>
-
             </a>
 
         </div>
@@ -656,8 +1136,146 @@
 
 
 
-    <script src="form.js"></script>
+    <script>
+
+        "use strict";
+
+
+        const form =
+            document.getElementById("vaultoraForm");
+
+
+        const questionInputs =
+            document.querySelectorAll(".question-input");
+
+
+        const progressText =
+            document.getElementById("progressText");
+
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+
+        const successOverlay =
+            document.getElementById("successOverlay");
+
+
+        const submissionReference =
+            document.getElementById("submissionReference");
+
+
+
+        function updateProgress() {
+
+            let completed = 0;
+
+
+            questionInputs.forEach((input) => {
+
+                if (input.value.trim() !== "") {
+
+                    completed += 1;
+
+                }
+
+            });
+
+
+            progressText.textContent =
+                `${completed} of 4 complete`;
+
+
+            progressBar.style.width =
+                `${(completed / 4) * 100}%`;
+
+        }
+
+
+
+        questionInputs.forEach((input) => {
+
+            input.addEventListener(
+                "input",
+                updateProgress
+            );
+
+        });
+
+
+
+        function createReference() {
+
+            const characters =
+                "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+
+            let result = "";
+
+
+            for (
+                let index = 0;
+                index < 6;
+                index += 1
+            ) {
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random() *
+                        characters.length
+                    );
+
+
+                result +=
+                    characters[randomIndex];
+
+            }
+
+
+            return `VLT-FRM-${result}`;
+
+        }
+
+
+
+        form.addEventListener(
+            "submit",
+            (event) => {
+
+                event.preventDefault();
+
+
+                if (!form.checkValidity()) {
+
+                    form.reportValidity();
+
+                    return;
+
+                }
+
+
+                submissionReference.textContent =
+                    createReference();
+
+
+                successOverlay.classList.add(
+                    "active"
+                );
+
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }
+        );
+
+
+
+        updateProgress();
+
+    </script>
+
 
 </body>
 
-</html>                
+</html>
