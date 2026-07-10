@@ -1,1 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Create your Vaultora workspace profile."
+    >
+
+    <title>Create Account | Vaultora</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body class="vaultora-auth-body">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+
+    <!-- =========================
+         SECURITY BANNER
+    ========================== -->
+
+    <div class="demo-banner">
+
+        <span class="demo-dot"></span>
+
+        <span>
+            PROTECTED WORKSPACE
+        </span>
+
+        <span class="demo-description">
+            Your privacy and security remain our priority.
+        </span>
+
+    </div>
+
+
+    <!-- =========================
+         AUTH PAGE
+    ========================== -->
+
+    <main class="vaultora-auth-page">
+
+
+        <!-- LEFT INFORMATION PANEL -->
+
+        <section class="vaultora-auth-information">
+
+            <a
+                href="index.html"
+                class="vaultora-auth-back"
+            >
+                <span>←</span>
+                Return to workspace
+            </a>
+
+
+            <div class="vaultora-auth-brand">
+
+                <img
+                    src="images/vaultora-logo.png"
+                    alt="Vaultora Logo"
+                    class="vaultora-auth-logo"
+                >
+
+                <div class="vaultora-auth-brand-copy">
+
+                    <strong>
+                        Vaultora
+                    </strong>
+
+                    <span>
+                        Secure Workspace
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="vaultora-auth-intro">
+
+                <span class="vaultora-auth-eyebrow">
+                    VAULTORA ACCESS
+                </span>
+
+                <h1>
+                    Your workspace.<br>
+                    Protected by design.
+                </h1>
+
+                <p>
+                    Create your Vaultora profile and establish your
+                    workspace access credentials.
+                </p>
+
+            </div>
+
+
+            <div class="vaultora-auth-security-list">
+
+                <div class="vaultora-auth-security-item">
+
+                    <div class="vaultora-auth-security-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v11H5V10Z"/>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Protected account setup
+                        </strong>
+
+                        <span>
+                            Designed around secure account access practices.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vaultora-auth-security-item">
+
+                    <div class="vaultora-auth-security-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="m12 3 7 3v5c0 4.5-2.7 8.1-7 10-4.3-1.9-7-5.5-7-10V6l7-3Zm-3 8 2 2 4-4"/>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Privacy-focused experience
+                        </strong>
+
+                        <span>
+                            Your information should only be used for authorized purposes.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vaultora-auth-security-item">
+
+                    <div class="vaultora-auth-security-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 12h16M12 4v16"/>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Simple workspace access
+                        </strong>
+
+                        <span>
+                            Create a profile using a username and secure password.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="vaultora-auth-left-footer">
+
+                <span class="vaultora-auth-status-dot"></span>
+
+                <span>
+                    Vaultora protected environment active
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SIGNUP PANEL -->
+
+        <section class="vaultora-auth-form-side">
+
+            <div class="vaultora-auth-card">
+
+
+                <div class="vaultora-auth-card-header">
+
+                    <span class="vaultora-auth-form-label">
+                        NEW WORKSPACE PROFILE
+                    </span>
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p>
+                        Choose your Vaultora username and create your
+                        account credentials.
+                    </p>
+
+                </div>
+
+
+                <form
+                    class="vaultora-signup-form"
+                    id="signupForm"
+                >
+
+
+                    <!-- USERNAME -->
+
+                    <div class="vaultora-signup-field">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <div class="vaultora-input-wrapper">
+
+                            <span class="vaultora-input-icon">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21c0-4 3.6-7 8-7s8 3 8 7"/>
+                                </svg>
+
+                            </span>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Choose a username"
+                                autocomplete="username"
+                                minlength="3"
+                                required
+                            >
+
+                        </div>
+
+                        <span class="vaultora-field-hint">
+                            Use at least 3 characters.
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="vaultora-signup-field">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="vaultora-input-wrapper">
+
+                            <span class="vaultora-input-icon">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v11H5V10Z"/>
+                                </svg>
+
+                            </span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="vaultora-password-toggle"
+                                data-password-target="password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <div class="vaultora-password-strength">
+
+                            <div class="vaultora-strength-bars">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                            <span id="passwordStrengthText">
+                                Minimum 8 characters
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="vaultora-signup-field">
+
+                        <label for="confirmPassword">
+                            Confirm password
+                        </label>
+
+                        <div class="vaultora-input-wrapper">
+
+                            <span class="vaultora-input-icon">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="m5 12 4 4L19 6"/>
+                                </svg>
+
+                            </span>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Re-enter your password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="vaultora-password-toggle"
+                                data-password-target="confirmPassword"
+                                aria-label="Show confirmation password"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <span
+                            class="vaultora-field-error"
+                            id="passwordError"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- TERMS -->
+
+                    <label class="vaultora-signup-confirmation">
+
+                        <input
+                            type="checkbox"
+                            id="accountConfirmation"
+                            required
+                        >
+
+                        <span>
+                            I confirm that the information entered is
+                            accurate and I am authorized to create this
+                            workspace profile.
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="vaultora-signup-submit"
+                    >
+
+                        <span>
+                            Create Account
+                        </span>
+
+                        <span class="vaultora-submit-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="vaultora-signup-message"
+                        id="signupMessage"
+                        role="status"
+                    ></div>
+
+                </form>
+
+
+
+                <div class="vaultora-auth-card-footer">
+
+                    <div class="vaultora-auth-lock">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v11H5V10Z"/>
+                        </svg>
+
+                    </div>
+
+                    <p>
+                        This page is currently a frontend demonstration.
+                        Authentication is not yet connected and credentials
+                        are not transmitted or stored.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="vaultora-auth-form-footer">
+
+                <span>
+                    Vaultora
+                </span>
+
+                <span class="vaultora-footer-divider"></span>
+
+                <span>
+                    Secure Workspace
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         SIGNUP INTERACTIONS
+    ========================== -->
+
+    <script>
+
+        const signupForm =
+            document.getElementById("signupForm");
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const confirmPasswordInput =
+            document.getElementById("confirmPassword");
+
+        const passwordError =
+            document.getElementById("passwordError");
+
+        const signupMessage =
+            document.getElementById("signupMessage");
+
+        const passwordStrengthText =
+            document.getElementById("passwordStrengthText");
+
+        const strengthBars =
+            document.querySelectorAll(
+                ".vaultora-strength-bars span"
+            );
+
+
+        function updatePasswordStrength() {
+
+            const password =
+                passwordInput.value;
+
+            let strength = 0;
+
+
+            if (password.length >= 8) {
+                strength++;
+            }
+
+
+            if (/[A-Z]/.test(password)) {
+                strength++;
+            }
+
+
+            if (/[0-9]/.test(password)) {
+                strength++;
+            }
+
+
+            if (/[^A-Za-z0-9]/.test(password)) {
+                strength++;
+            }
+
+
+            strengthBars.forEach(
+                function (bar, index) {
+
+                    if (index < strength) {
+
+                        bar.classList.add("active");
+
+                    } else {
+
+                        bar.classList.remove("active");
+
+                    }
+
+                }
+            );
+
+
+            if (password.length === 0) {
+
+                passwordStrengthText.textContent =
+                    "Minimum 8 characters";
+
+            } else if (strength <= 1) {
+
+                passwordStrengthText.textContent =
+                    "Password strength: Basic";
+
+            } else if (strength === 2) {
+
+                passwordStrengthText.textContent =
+                    "Password strength: Moderate";
+
+            } else if (strength === 3) {
+
+                passwordStrengthText.textContent =
+                    "Password strength: Strong";
+
+            } else {
+
+                passwordStrengthText.textContent =
+                    "Password strength: Excellent";
+
+            }
+
+        }
+
+
+
+        passwordInput.addEventListener(
+            "input",
+            updatePasswordStrength
+        );
+
+
+
+        document
+            .querySelectorAll(
+                ".vaultora-password-toggle"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const targetId =
+                                button.dataset.passwordTarget;
+
+                            const targetInput =
+                                document.getElementById(targetId);
+
+
+                            if (
+                                targetInput.type === "password"
+                            ) {
+
+                                targetInput.type = "text";
+
+                                button.textContent = "Hide";
+
+                            } else {
+
+                                targetInput.type = "password";
+
+                                button.textContent = "Show";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        signupForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                passwordError.textContent = "";
+
+                signupMessage.textContent = "";
+
+                signupMessage.className =
+                    "vaultora-signup-message";
+
+
+                const password =
+                    passwordInput.value;
+
+                const confirmPassword =
+                    confirmPasswordInput.value;
+
+
+                if (password !== confirmPassword) {
+
+                    passwordError.textContent =
+                        "Passwords do not match. Please review both fields.";
+
+                    confirmPasswordInput.focus();
+
+                    return;
+
+                }
+
+
+                if (password.length < 8) {
+
+                    passwordError.textContent =
+                        "Your password must contain at least 8 characters.";
+
+                    passwordInput.focus();
+
+                    return;
+
+                }
+
+
+                signupMessage.textContent =
+                    "Authentication has not been connected yet. No credentials were sent or stored.";
+
+                signupMessage.classList.add("visible");
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
