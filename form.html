@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,12 +12,13 @@
 
     <title>Vaultora | Workspace Form</title>
 
+
     <style>
 
         :root {
             --background: #070b0f;
             --panel: #0d141a;
-            --panel-soft: #10181f;
+
             --border: rgba(255, 255, 255, 0.09);
             --border-focus: rgba(112, 225, 181, 0.55);
 
@@ -71,9 +73,24 @@
         }
 
 
+        .honeypot {
+            position: absolute;
+
+            left: -9999px;
+
+            width: 1px;
+            height: 1px;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+
         /* =====================================================
-           DEMO NOTICE
+           DEMO BAR
         ===================================================== */
+
 
         .demo-bar {
             height: 34px;
@@ -126,6 +143,7 @@
            HEADER
         ===================================================== */
 
+
         .header {
             height: 76px;
 
@@ -140,12 +158,14 @@
 
             padding: 0 38px;
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
             background:
                 rgba(7, 11, 15, 0.84);
 
-            backdrop-filter: blur(20px);
+            backdrop-filter:
+                blur(20px);
         }
 
 
@@ -191,7 +211,8 @@
 
             border-radius: 10px;
 
-            background: var(--accent-soft);
+            background:
+                var(--accent-soft);
 
             color: var(--accent);
 
@@ -231,6 +252,9 @@
             border-radius: 50%;
 
             background: var(--accent);
+
+            box-shadow:
+                0 0 9px rgba(112, 225, 181, 0.6);
         }
 
 
@@ -238,13 +262,17 @@
            PAGE
         ===================================================== */
 
+
         .page {
             width: 100%;
             max-width: 780px;
 
             margin: 0 auto;
 
-            padding: 70px 24px 90px;
+            padding:
+                70px
+                24px
+                90px;
         }
 
 
@@ -263,7 +291,13 @@
 
             color: var(--text);
 
-            font-size: clamp(34px, 6vw, 52px);
+            font-size:
+                clamp(
+                    34px,
+                    6vw,
+                    52px
+                );
+
             font-weight: 560;
 
             letter-spacing: -0.055em;
@@ -288,6 +322,7 @@
         /* =====================================================
            PROGRESS
         ===================================================== */
+
 
         .progress-header {
             display: flex;
@@ -349,11 +384,13 @@
 
 
         /* =====================================================
-           FORM CARD
+           FORM
         ===================================================== */
 
+
         .form-card {
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 18px;
 
@@ -382,12 +419,8 @@
 
             padding: 32px;
 
-            border-bottom: 1px solid var(--border);
-        }
-
-
-        .question:last-of-type {
-            border-bottom: 0;
+            border-bottom:
+                1px solid var(--border);
         }
 
 
@@ -403,7 +436,8 @@
 
             border-radius: 50%;
 
-            background: var(--accent-soft);
+            background:
+                var(--accent-soft);
 
             color: var(--accent);
 
@@ -441,7 +475,8 @@
 
             padding: 0 15px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 10px;
 
@@ -473,7 +508,8 @@
 
 
         .text-input:focus {
-            border-color: var(--border-focus);
+            border-color:
+                var(--border-focus);
 
             background:
                 rgba(112, 225, 181, 0.025);
@@ -486,6 +522,7 @@
         /* =====================================================
            SUBMIT
         ===================================================== */
+
 
         .submit-area {
             display: flex;
@@ -549,20 +586,31 @@
 
             transition:
                 transform 160ms ease,
-                background 160ms ease;
+                background 160ms ease,
+                opacity 160ms ease;
         }
 
 
-        .submit-button:hover {
-            transform: translateY(-2px);
+        .submit-button:hover:not(:disabled) {
+            transform:
+                translateY(-2px);
 
-            background: #85e7c2;
+            background:
+                #85e7c2;
+        }
+
+
+        .submit-button:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
         }
 
 
         /* =====================================================
            SUCCESS SCREEN
         ===================================================== */
+
 
         .success-overlay {
             position: fixed;
@@ -578,7 +626,8 @@
             background:
                 rgba(3, 6, 9, 0.88);
 
-            backdrop-filter: blur(16px);
+            backdrop-filter:
+                blur(16px);
 
             opacity: 0;
             visibility: hidden;
@@ -603,7 +652,8 @@
 
             padding: 42px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 18px;
 
@@ -623,14 +673,17 @@
             display: grid;
             place-items: center;
 
-            margin: 0 auto 22px;
+            margin:
+                0 auto
+                22px;
 
             border:
                 1px solid rgba(112, 225, 181, 0.25);
 
             border-radius: 50%;
 
-            background: var(--accent-soft);
+            background:
+                var(--accent-soft);
 
             color: var(--accent);
 
@@ -649,7 +702,9 @@
 
 
         .success-card p {
-            margin: 12px auto 23px;
+            margin:
+                12px auto
+                23px;
 
             color: var(--secondary);
 
@@ -664,7 +719,8 @@
 
             margin-bottom: 15px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 9px;
 
@@ -721,6 +777,7 @@
            MOBILE
         ===================================================== */
 
+
         @media (max-width: 600px) {
 
             .demo-description,
@@ -752,11 +809,14 @@
 
 
             .question {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
 
                 gap: 14px;
 
-                padding: 25px 21px;
+                padding:
+                    25px
+                    21px;
             }
 
 
@@ -770,7 +830,9 @@
                 align-items: stretch;
                 flex-direction: column;
 
-                padding: 23px 21px;
+                padding:
+                    23px
+                    21px;
             }
 
 
@@ -780,7 +842,9 @@
 
 
             .success-card {
-                padding: 34px 24px;
+                padding:
+                    34px
+                    24px;
             }
 
         }
@@ -794,6 +858,7 @@
 
 
     <!-- DEMO NOTICE -->
+
 
     <div class="demo-bar">
 
@@ -812,6 +877,7 @@
 
 
     <!-- HEADER -->
+
 
     <header class="header">
 
@@ -853,6 +919,7 @@
 
     <!-- PAGE -->
 
+
     <main class="page">
 
         <span class="page-label">
@@ -873,6 +940,7 @@
 
 
         <!-- PROGRESS -->
+
 
         <div class="progress-header">
 
@@ -897,13 +965,31 @@
 
         <!-- FORM -->
 
+
         <form
             class="form-card"
             id="vaultoraForm"
+            action="https://formspree.io/f/mrewnonv"
+            method="POST"
         >
 
 
+            <!-- SPAM PROTECTION -->
+
+
+            <input
+                type="text"
+                name="_gotcha"
+                class="honeypot"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+            >
+
+
+
             <!-- QUESTION 1 -->
+
 
             <div class="question">
 
@@ -927,6 +1013,7 @@
                     <input
                         type="text"
                         id="favouriteColour"
+                        name="Favourite Colour"
                         class="text-input question-input"
                         placeholder="Your answer"
                         autocomplete="off"
@@ -940,6 +1027,7 @@
 
 
             <!-- QUESTION 2 -->
+
 
             <div class="question">
 
@@ -963,6 +1051,7 @@
                     <input
                         type="text"
                         id="favouriteAnimal"
+                        name="Favourite Animal"
                         class="text-input question-input"
                         placeholder="Your answer"
                         autocomplete="off"
@@ -976,6 +1065,7 @@
 
 
             <!-- QUESTION 3 -->
+
 
             <div class="question">
 
@@ -999,6 +1089,7 @@
                     <input
                         type="text"
                         id="favouriteCountry"
+                        name="Favourite Country"
                         class="text-input question-input"
                         placeholder="Your answer"
                         autocomplete="off"
@@ -1012,6 +1103,7 @@
 
 
             <!-- QUESTION 4 -->
+
 
             <div class="question">
 
@@ -1035,6 +1127,7 @@
                     <input
                         type="text"
                         id="dogOrCats"
+                        name="Dogs or Cats"
                         class="text-input question-input"
                         placeholder="Your answer"
                         autocomplete="off"
@@ -1048,6 +1141,7 @@
 
 
             <!-- SUBMIT -->
+
 
             <div class="submit-area">
 
@@ -1067,6 +1161,7 @@
                 <button
                     type="submit"
                     class="submit-button"
+                    id="submitButton"
                 >
 
                     Submit form
@@ -1079,6 +1174,7 @@
 
             </div>
 
+
         </form>
 
     </main>
@@ -1086,6 +1182,7 @@
 
 
     <!-- SUCCESS -->
+
 
     <div
         class="success-overlay"
@@ -1136,34 +1233,60 @@
 
 
 
+    <!-- JAVASCRIPT -->
+
+
     <script>
 
         "use strict";
 
 
         const form =
-            document.getElementById("vaultoraForm");
+            document.getElementById(
+                "vaultoraForm"
+            );
 
 
         const questionInputs =
-            document.querySelectorAll(".question-input");
+            document.querySelectorAll(
+                ".question-input"
+            );
 
 
         const progressText =
-            document.getElementById("progressText");
+            document.getElementById(
+                "progressText"
+            );
 
 
         const progressBar =
-            document.getElementById("progressBar");
+            document.getElementById(
+                "progressBar"
+            );
 
 
         const successOverlay =
-            document.getElementById("successOverlay");
+            document.getElementById(
+                "successOverlay"
+            );
 
 
         const submissionReference =
-            document.getElementById("submissionReference");
+            document.getElementById(
+                "submissionReference"
+            );
 
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+
+        /* =====================================================
+           PROGRESS
+        ===================================================== */
 
 
         function updateProgress() {
@@ -1171,15 +1294,19 @@
             let completed = 0;
 
 
-            questionInputs.forEach((input) => {
+            questionInputs.forEach(
+                (input) => {
 
-                if (input.value.trim() !== "") {
+                    if (
+                        input.value.trim() !== ""
+                    ) {
 
-                    completed += 1;
+                        completed += 1;
+
+                    }
 
                 }
-
-            });
+            );
 
 
             progressText.textContent =
@@ -1193,15 +1320,22 @@
 
 
 
-        questionInputs.forEach((input) => {
+        questionInputs.forEach(
+            (input) => {
 
-            input.addEventListener(
-                "input",
-                updateProgress
-            );
+                input.addEventListener(
+                    "input",
+                    updateProgress
+                );
 
-        });
+            }
+        );
 
+
+
+        /* =====================================================
+           SUBMISSION REFERENCE
+        ===================================================== */
 
 
         function createReference() {
@@ -1238,14 +1372,21 @@
 
 
 
+        /* =====================================================
+           FORMSPREE SUBMISSION
+        ===================================================== */
+
+
         form.addEventListener(
             "submit",
-            (event) => {
+            async (event) => {
 
                 event.preventDefault();
 
 
-                if (!form.checkValidity()) {
+                if (
+                    !form.checkValidity()
+                ) {
 
                     form.reportValidity();
 
@@ -1254,17 +1395,151 @@
                 }
 
 
-                submissionReference.textContent =
-                    createReference();
+                const originalButtonContent =
+                    submitButton.innerHTML;
 
 
-                successOverlay.classList.add(
-                    "active"
-                );
+                submitButton.disabled =
+                    true;
 
 
-                document.body.style.overflow =
-                    "hidden";
+                submitButton.innerHTML = `
+                    Submitting
+                    <span>...</span>
+                `;
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            form.action,
+                            {
+
+                                method:
+                                    form.method,
+
+                                body:
+                                    new FormData(form),
+
+                                headers: {
+
+                                    "Accept":
+                                        "application/json"
+
+                                }
+
+                            }
+                        );
+
+
+                    if (
+                        !response.ok
+                    ) {
+
+                        let errorMessage =
+                            "The form could not be submitted. Please try again.";
+
+
+                        if (
+                            response.status === 429
+                        ) {
+
+                            errorMessage =
+                                "Too many submissions were sent. Please wait and try again.";
+
+                        }
+
+
+                        try {
+
+                            const responseData =
+                                await response.json();
+
+
+                            if (
+                                Array.isArray(
+                                    responseData.errors
+                                ) &&
+                                responseData.errors.length > 0
+                            ) {
+
+                                errorMessage =
+                                    responseData.errors
+                                        .map(
+                                            (error) =>
+                                                error.message
+                                        )
+                                        .filter(Boolean)
+                                        .join("\n")
+                                    ||
+                                    errorMessage;
+
+                            }
+
+                        } catch (
+                            parseError
+                        ) {
+
+                            console.warn(
+                                "Could not read Formspree error.",
+                                parseError
+                            );
+
+                        }
+
+
+                        throw new Error(
+                            errorMessage
+                        );
+
+                    }
+
+
+                    submissionReference.textContent =
+                        createReference();
+
+
+                    successOverlay.classList.add(
+                        "active"
+                    );
+
+
+                    document.body.style.overflow =
+                        "hidden";
+
+
+                    form.reset();
+
+
+                    updateProgress();
+
+                } catch (
+                    error
+                ) {
+
+                    console.error(
+                        "Form submission failed:",
+                        error
+                    );
+
+
+                    alert(
+                        error.message
+                        ||
+                        "The form could not be submitted. Please try again."
+                    );
+
+                } finally {
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.innerHTML =
+                        originalButtonContent;
+
+                }
 
             }
         );
