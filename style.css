@@ -239,6 +239,9 @@ svg {
 
     backdrop-filter: blur(22px);
 
+    overflow-x: hidden;
+    overflow-y: auto;
+
     z-index: 900;
 }
 
@@ -307,6 +310,8 @@ svg {
 .sidebar-nav {
     display: flex;
     flex-direction: column;
+
+    flex: 0 0 auto;
 
     gap: 5px;
 }
@@ -398,6 +403,8 @@ svg {
 
 
 .sidebar-bottom {
+    flex: 0 0 auto;
+
     margin-top: auto;
 }
 
@@ -4298,11 +4305,18 @@ input:checked
 
 }
 .brand-logo {
-    object-fit: contain;
+    object-fit: cover;
     padding: 0;
 }
+
+
+/* =========================================================
+   SIDEBAR SIGNUP CARD
+========================================================= */
+
 .sidebar-signup-card {
-    margin: 18px 14px;
+    flex: 0 0 auto;
+    margin: 18px 14px 16px;
     padding: 18px;
     border-radius: 16px;
     background: linear-gradient(
@@ -4359,4 +4373,33 @@ input:checked
     font-size: 10px;
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+
+    .sidebar {
+        padding-top: 20px;
+    }
+
+
+    .brand {
+        padding-bottom: 20px;
+    }
+
+
+    .sidebar-signup-card {
+        margin-top: 14px;
+        padding: 15px;
+    }
+
+
+    .sidebar-signup-card h3 {
+        font-size: 14px;
+    }
+
+
+    .sidebar-signup-card p {
+        font-size: 11px;
+    }
+
 }
