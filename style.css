@@ -4297,3 +4297,7 @@ input:checked
     }
 
 }
+.brand-logo {
+    object-fit: contain;
+    padding: 0;
+}
