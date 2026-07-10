@@ -9,16 +9,24 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Vaultora | Secure Form</title>
+    <meta
+        name="description"
+        content="Vaultora demonstration workspace form."
+    >
+
+    <title>Vaultora | Workspace Form</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="form-page-body">
+
+<body class="form-page-body premium-form-page">
 
     <div class="ambient ambient-one"></div>
     <div class="ambient ambient-two"></div>
 
+
+    <!-- DEMO NOTICE -->
 
     <div class="demo-banner">
 
@@ -29,353 +37,549 @@
         </span>
 
         <span class="demo-description">
-            Vaultora secure workspace demonstration
+            No real banking information is collected or transmitted.
         </span>
 
     </div>
 
 
-    <header class="form-page-header">
+
+    <!-- HEADER -->
+
+    <header class="premium-form-header">
 
         <a
             href="index.html"
-            class="form-back-button"
+            class="premium-back-link"
         >
-            ← Back to workspace
+
+            <span class="premium-back-arrow">
+                ←
+            </span>
+
+            Workspace
+
         </a>
 
 
-        <div class="form-page-brand">
+        <a
+            href="index.html"
+            class="premium-form-logo"
+        >
 
-            <div class="brand-symbol">
+            <span class="premium-logo-mark">
                 V
-            </div>
+            </span>
 
-            <div class="brand-copy">
 
-                <span class="brand-name">
+            <span class="premium-logo-copy">
+
+                <strong>
                     Vaultora
-                </span>
+                </strong>
 
-                <span class="brand-tagline">
+                <small>
                     Secure Workspace
-                </span>
+                </small>
 
-            </div>
+            </span>
 
-        </div>
+        </a>
 
 
-        <div class="connection-status">
+        <div class="premium-session-state">
 
             <span class="connection-dot"></span>
 
-            <span>
-                Protected Session
-            </span>
+            Protected session
 
         </div>
 
     </header>
 
 
-    <main class="secure-form-shell">
 
-        <section class="secure-form-intro">
+    <!-- MAIN FORM -->
 
-            <span class="eyebrow">
-                SECURE FORM
-            </span>
-
-            <h1>
-                Void Cheque Form
-            </h1>
-
-            <p>
-                Complete the following demonstration questionnaire.
-                Your responses are processed locally within this demo interface.
-            </p>
-
-        </section>
+    <main class="premium-form-shell">
 
 
-        <div class="form-progress-container">
+        <!-- LEFT SIDE -->
 
-            <div class="form-progress-top">
+        <aside class="premium-form-aside">
 
-                <span>
-                    FORM PROGRESS
+            <div class="premium-aside-content">
+
+                <span class="premium-kicker">
+                    VAULTORA FORMS
                 </span>
 
-                <strong id="progressText">
-                    0 of 4 complete
-                </strong>
 
-            </div>
-
-
-            <div class="form-progress-track">
-
-                <div
-                    class="form-progress-bar"
-                    id="progressBar"
-                ></div>
-
-            </div>
-
-        </div>
+                <h1>
+                    A simpler way to complete your workspace details.
+                </h1>
 
 
-        <form
-            class="vaultora-question-form"
-            id="vaultoraQuestionForm"
-        >
+                <p>
+                    Complete the short demonstration form to continue.
+                    Your responses remain within this front-end demo experience.
+                </p>
 
 
-            <!-- QUESTION 1 -->
-
-            <section class="question-panel">
-
-                <div class="question-number">
-                    01
-                </div>
+                <div class="premium-aside-divider"></div>
 
 
-                <div class="question-content">
+                <div class="premium-security-point">
 
-                    <span class="question-label">
-                        QUESTION ONE
+                    <span class="premium-security-number">
+                        01
                     </span>
 
-                    <h2>
-                        What is your favourite colour?
-                    </h2>
 
-                    <p>
-                        Enter your preferred colour below.
-                    </p>
+                    <div>
 
+                        <strong>
+                            Four quick questions
+                        </strong>
 
-                    <input
-                        type="text"
-                        id="favouriteColour"
-                        name="favouriteColour"
-                        class="vaultora-text-input"
-                        placeholder="Enter a colour"
-                        autocomplete="off"
-                        required
-                    >
-
-                </div>
-
-            </section>
-
-
-
-            <!-- QUESTION 2 -->
-
-            <section class="question-panel">
-
-                <div class="question-number">
-                    02
-                </div>
-
-
-                <div class="question-content">
-
-                    <span class="question-label">
-                        QUESTION TWO
-                    </span>
-
-                    <h2>
-                        What is your favourite animal?
-                    </h2>
-
-                    <p>
-                        Enter your favourite animal.
-                    </p>
-
-
-                    <input
-                        type="text"
-                        id="favouriteAnimal"
-                        name="favouriteAnimal"
-                        class="vaultora-text-input"
-                        placeholder="Enter an animal"
-                        autocomplete="off"
-                        required
-                    >
-
-                </div>
-
-            </section>
-
-
-
-            <!-- QUESTION 3 -->
-
-            <section class="question-panel">
-
-                <div class="question-number">
-                    03
-                </div>
-
-
-                <div class="question-content">
-
-                    <span class="question-label">
-                        QUESTION THREE
-                    </span>
-
-                    <h2>
-                        What's your favourite country?
-                    </h2>
-
-                    <p>
-                        Enter your preferred country.
-                    </p>
-
-
-                    <input
-                        type="text"
-                        id="favouriteCountry"
-                        name="favouriteCountry"
-                        class="vaultora-text-input"
-                        placeholder="Enter a country"
-                        autocomplete="off"
-                        required
-                    >
-
-                </div>
-
-            </section>
-
-
-
-            <!-- QUESTION 4 -->
-
-            <section class="question-panel">
-
-                <div class="question-number">
-                    04
-                </div>
-
-
-                <div class="question-content">
-
-                    <span class="question-label">
-                        QUESTION FOUR
-                    </span>
-
-                    <h2>
-                        Do you like dogs or cats?
-                    </h2>
-
-                    <p>
-                        Select your preference.
-                    </p>
-
-
-                    <div class="choice-grid">
-
-                        <label class="choice-card">
-
-                            <input
-                                type="radio"
-                                name="petPreference"
-                                value="Dogs"
-                                required
-                            >
-
-                            <span class="choice-card-content">
-
-                                <span class="choice-icon">
-                                    D
-                                </span>
-
-                                <strong>
-                                    Dogs
-                                </strong>
-
-                                <small>
-                                    Select dogs
-                                </small>
-
-                            </span>
-
-                        </label>
-
-
-                        <label class="choice-card">
-
-                            <input
-                                type="radio"
-                                name="petPreference"
-                                value="Cats"
-                                required
-                            >
-
-                            <span class="choice-card-content">
-
-                                <span class="choice-icon">
-                                    C
-                                </span>
-
-                                <strong>
-                                    Cats
-                                </strong>
-
-                                <small>
-                                    Select cats
-                                </small>
-
-                            </span>
-
-                        </label>
+                        <p>
+                            The form should take less than a minute to complete.
+                        </p>
 
                     </div>
 
                 </div>
 
-            </section>
+
+                <div class="premium-security-point">
+
+                    <span class="premium-security-number">
+                        02
+                    </span>
 
 
+                    <div>
 
-            <!-- SUBMIT -->
+                        <strong>
+                            Demonstration only
+                        </strong>
 
-            <div class="secure-form-submit-panel">
+                        <p>
+                            Do not enter banking credentials or sensitive information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="premium-security-point">
+
+                    <span class="premium-security-number">
+                        03
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Local experience
+                        </strong>
+
+                        <p>
+                            No external form submission is configured.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="premium-aside-footer">
+
+                <div class="premium-lock-symbol">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v11H5V10Z"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
 
                 <div>
 
-                    <span class="eyebrow">
-                        FINAL REVIEW
+                    <strong>
+                        Vaultora Demo Security
+                    </strong>
+
+                    <span>
+                        Sensitive financial fields disabled
                     </span>
 
-                    <h3>
-                        Ready to submit?
-                    </h3>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="premium-form-area">
+
+
+            <div class="premium-form-heading">
+
+                <div>
+
+                    <span class="premium-form-step">
+                        WORKSPACE FORM
+                    </span>
+
+
+                    <h2>
+                        Void Cheque Form
+                    </h2>
+
 
                     <p>
-                        Ensure all four questions have been completed.
+                        Complete all required fields below.
                     </p>
 
                 </div>
 
 
-                <button
-                    type="submit"
-                    class="primary-button secure-submit-button"
-                >
-                    Submit secure form
+                <div class="premium-progress-value">
 
-                    <span>
-                        →
-                    </span>
-                </button>
+                    <strong id="progressText">
+                        0 of 4 complete
+                    </strong>
+
+                </div>
 
             </div>
 
-        </form>
+
+
+            <!-- PROGRESS -->
+
+            <div class="premium-progress-track">
+
+                <div
+                    class="premium-progress-bar"
+                    id="progressBar"
+                ></div>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form
+                id="vaultoraQuestionForm"
+                class="premium-question-form"
+            >
+
+
+                <!-- QUESTION 1 -->
+
+                <div class="premium-form-row">
+
+                    <div class="premium-question-meta">
+
+                        <span>
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="premium-question-main">
+
+                        <label for="favouriteColour">
+                            What is your favourite colour?
+                        </label>
+
+
+                        <p>
+                            Enter your preferred colour.
+                        </p>
+
+
+                        <input
+                            type="text"
+                            id="favouriteColour"
+                            name="favouriteColour"
+                            class="vaultora-text-input premium-text-input"
+                            placeholder="e.g. Midnight blue"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUESTION 2 -->
+
+                <div class="premium-form-row">
+
+                    <div class="premium-question-meta">
+
+                        <span>
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="premium-question-main">
+
+                        <label for="favouriteAnimal">
+                            What is your favourite animal?
+                        </label>
+
+
+                        <p>
+                            Enter the animal you prefer most.
+                        </p>
+
+
+                        <input
+                            type="text"
+                            id="favouriteAnimal"
+                            name="favouriteAnimal"
+                            class="vaultora-text-input premium-text-input"
+                            placeholder="e.g. Snow leopard"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUESTION 3 -->
+
+                <div class="premium-form-row">
+
+                    <div class="premium-question-meta">
+
+                        <span>
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="premium-question-main">
+
+                        <label for="favouriteCountry">
+                            What's your favourite country?
+                        </label>
+
+
+                        <p>
+                            Enter your preferred country.
+                        </p>
+
+
+                        <input
+                            type="text"
+                            id="favouriteCountry"
+                            name="favouriteCountry"
+                            class="vaultora-text-input premium-text-input"
+                            placeholder="e.g. Canada"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUESTION 4 -->
+
+                <div class="premium-form-row">
+
+                    <div class="premium-question-meta">
+
+                        <span>
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <div class="premium-question-main">
+
+                        <label>
+                            Do you like dogs or cats?
+                        </label>
+
+
+                        <p>
+                            Choose your preference.
+                        </p>
+
+
+                        <div class="premium-choice-grid">
+
+
+                            <label class="premium-choice-option">
+
+                                <input
+                                    type="radio"
+                                    name="petPreference"
+                                    value="Dogs"
+                                    required
+                                >
+
+
+                                <span class="premium-choice-inner">
+
+                                    <span class="premium-choice-letter">
+                                        D
+                                    </span>
+
+
+                                    <span class="premium-choice-text">
+
+                                        <strong>
+                                            Dogs
+                                        </strong>
+
+                                        <small>
+                                            Select dogs
+                                        </small>
+
+                                    </span>
+
+
+                                    <span class="premium-radio">
+
+                                        <span></span>
+
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+
+                            <label class="premium-choice-option">
+
+                                <input
+                                    type="radio"
+                                    name="petPreference"
+                                    value="Cats"
+                                    required
+                                >
+
+
+                                <span class="premium-choice-inner">
+
+                                    <span class="premium-choice-letter">
+                                        C
+                                    </span>
+
+
+                                    <span class="premium-choice-text">
+
+                                        <strong>
+                                            Cats
+                                        </strong>
+
+                                        <small>
+                                            Select cats
+                                        </small>
+
+                                    </span>
+
+
+                                    <span class="premium-radio">
+
+                                        <span></span>
+
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <div class="premium-submit-area">
+
+                    <div class="premium-submit-copy">
+
+                        <span class="connection-dot"></span>
+
+
+                        <span>
+                            Review your responses before continuing.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="premium-submit-button"
+                    >
+
+                        Submit form
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+            <footer class="premium-form-footer">
+
+                <span>
+                    © 2026 Vaultora
+                </span>
+
+
+                <span>
+                    Demonstration workspace
+                </span>
+
+            </footer>
+
+        </section>
 
     </main>
 
@@ -384,38 +588,47 @@
     <!-- SUCCESS SCREEN -->
 
     <div
-        class="form-success-overlay"
+        class="form-success-overlay premium-success-overlay"
         id="formSuccessOverlay"
     >
 
-        <div class="form-success-card">
+        <div class="premium-success-card">
 
-            <div class="form-success-symbol">
-                ✓
+
+            <div class="premium-success-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path d="m5 12 4 4L19 6"></path>
+
+                </svg>
+
             </div>
 
 
-            <span class="eyebrow">
+            <span class="premium-kicker">
                 SUBMISSION COMPLETE
             </span>
 
 
             <h2>
-                Form successfully submitted.
+                Your form has been completed.
             </h2>
 
 
             <p>
-                Your demonstration response has been processed within the
-                Vaultora interface.
+                The demonstration workflow was completed successfully.
+                No banking credentials or sensitive financial information
+                were requested.
             </p>
 
 
-            <div class="submission-reference">
+            <div class="premium-reference-box">
 
                 <span>
                     SUBMISSION REFERENCE
                 </span>
+
 
                 <strong id="submissionReference">
                     VLT-FRM-000000
@@ -426,9 +639,15 @@
 
             <a
                 href="index.html"
-                class="primary-button success-return-button"
+                class="premium-success-button"
             >
+
                 Return to workspace
+
+                <span>
+                    →
+                </span>
+
             </a>
 
         </div>
@@ -436,8 +655,9 @@
     </div>
 
 
+
     <script src="form.js"></script>
 
 </body>
 
-</html>
+</html>                
