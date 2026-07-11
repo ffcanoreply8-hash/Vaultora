@@ -5418,3 +5418,129 @@ input:checked
     }
 
 }
+
+/* =========================================================
+   LOCAL DOCUMENT PICKER
+========================================================= */
+
+.document-picker-button {
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 18px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 650;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+
+.document-picker-button:hover {
+    transform: translateY(-1px);
+
+    background: rgba(255, 255, 255, 0.075);
+
+    border-color: rgba(112, 225, 181, 0.25);
+}
+
+
+.selected-document {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 15px;
+    padding: 14px;
+
+    border: 1px solid rgba(112, 225, 181, 0.16);
+    border-radius: 11px;
+
+    background: rgba(112, 225, 181, 0.055);
+}
+
+
+.selected-document[hidden] {
+    display: none;
+}
+
+
+.selected-document-icon {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border-radius: 8px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+.selected-document > div {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+.selected-document strong {
+    max-width: 380px;
+
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.selected-document span:last-child {
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+}
+
+
+.local-file-notice {
+    margin-top: 14px !important;
+    margin-bottom: 0 !important;
+
+    color: var(--text-muted) !important;
+
+    font-size: 8px !important;
+
+    text-align: center;
+}
