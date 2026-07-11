@@ -84,6 +84,21 @@ const settingsButton =
 const profileButton =
     document.getElementById("profileButton");
 
+const demoDocumentButton =
+    document.getElementById("demoDocumentButton");
+
+const demoDocumentInput =
+    document.getElementById("demoDocumentInput");
+
+const selectedDocument =
+    document.getElementById("selectedDocument");
+
+const selectedDocumentName =
+    document.getElementById("selectedDocumentName");
+
+const selectedDocumentSize =
+    document.getElementById("selectedDocumentSize");
+
 
 /* =========================================================
    APPLICATION STATE
@@ -122,6 +137,8 @@ function initializeVaultora() {
     bindMobileNavigation();
 
     bindDemoWorkflow();
+
+    bindLocalDocumentPicker();
 
     bindDocumentActions();
 
@@ -563,6 +580,131 @@ function bindDemoWorkflow() {
             );
         }
     );
+}
+
+
+
+
+/* =========================================================
+   LOCAL DEMO DOCUMENT PICKER
+
+   The selected file remains on the user's device.
+   Nothing is uploaded, transmitted, or stored.
+========================================================= */
+
+function bindLocalDocumentPicker() {
+    if (
+        !demoDocumentButton ||
+        !demoDocumentInput ||
+        !selectedDocument ||
+        !selectedDocumentName ||
+        !selectedDocumentSize
+    ) {
+        return;
+    }
+
+
+    demoDocumentButton.addEventListener(
+        "click",
+        () => {
+            demoDocumentInput.click();
+        }
+    );
+
+
+    demoDocumentInput.addEventListener(
+        "change",
+        () => {
+            const file =
+                demoDocumentInput.files?.[0];
+
+            if (!file) {
+                selectedDocument.hidden = true;
+
+                return;
+            }
+
+
+            const allowedExtensions = [
+                "pdf",
+                "png",
+                "jpg",
+                "jpeg"
+            ];
+
+            const fileExtension =
+                file.name
+                    .split(".")
+                    .pop()
+                    ?.toLowerCase();
+
+
+            if (
+                !fileExtension ||
+                !allowedExtensions.includes(
+                    fileExtension
+                )
+            ) {
+                window.alert(
+                    "Please choose a PDF, PNG, JPG, or JPEG sample file."
+                );
+
+                demoDocumentInput.value = "";
+
+                selectedDocument.hidden = true;
+
+                return;
+            }
+
+
+            const maximumFileSize =
+                5 * 1024 * 1024;
+
+
+            if (file.size > maximumFileSize) {
+                window.alert(
+                    "Please choose a sample file smaller than 5 MB."
+                );
+
+                demoDocumentInput.value = "";
+
+                selectedDocument.hidden = true;
+
+                return;
+            }
+
+
+            selectedDocumentName.textContent =
+                file.name;
+
+            selectedDocumentSize.textContent =
+                formatDocumentSize(file.size);
+
+            selectedDocument.hidden = false;
+
+
+            window.alert(
+                "Demo complete — your file was selected successfully. Nothing was uploaded or sent."
+            );
+        }
+    );
+}
+
+
+function formatDocumentSize(bytes) {
+    if (bytes < 1024) {
+        return `${bytes} bytes`;
+    }
+
+
+    if (bytes < 1024 * 1024) {
+        return `${(bytes / 1024).toFixed(1)} KB`;
+    }
+
+
+    return `${
+        (bytes / (1024 * 1024)).toFixed(1)
+    } MB`;
 }
 
 
