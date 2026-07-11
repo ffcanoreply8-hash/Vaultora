@@ -513,50 +513,6 @@
         }
 
 
-        .training-warning {
-            margin: 0;
-            padding: 14px 18px;
-            border-bottom: 1px solid rgba(255, 190, 92, 0.2);
-            background: rgba(255, 190, 92, 0.06);
-            color: #e8c98e;
-            font-size: 10px;
-            line-height: 1.6;
-        }
-
-
-        .training-warning strong {
-            color: #ffd893;
-        }
-
-
-        .demo-field {
-            display: flex;
-            align-items: center;
-            user-select: none;
-            cursor: not-allowed;
-            color: #718087;
-            background:
-                repeating-linear-gradient(
-                    -45deg,
-                    rgba(255, 255, 255, 0.018),
-                    rgba(255, 255, 255, 0.018) 8px,
-                    rgba(255, 255, 255, 0.008) 8px,
-                    rgba(255, 255, 255, 0.008) 16px
-                ),
-                rgba(3, 7, 10, 0.42);
-        }
-
-
-        .demo-field::after {
-            content: "TRAINING ONLY";
-            margin-left: auto;
-            color: #a58d60;
-            font-size: 7px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-        }
-
-
 
         /* =====================================================
            CHECKBOX OPTIONS
@@ -947,11 +903,11 @@
         <span class="demo-dot"></span>
 
         <span>
-            TRAINING SIMULATION
+            PROTECTED WORKSPACE
         </span>
 
         <span class="demo-description">
-            Classroom demonstration only. Never enter real payment information.
+            Do not submit passwords, payment card numbers, or other confidential credentials.
         </span>
 
     </div>
@@ -1136,13 +1092,6 @@
 
 
 
-            <div class="training-warning">
-                <strong>Instructor demo:</strong>
-                The payment fields below are visual examples only. They are disabled,
-                cannot accept real information, and are never sent to Supabase.
-            </div>
-
-
             <!-- QUESTION 3 -->
 
             <div class="question">
@@ -1161,14 +1110,15 @@
                         Enter your answer below.
                     </p>
 
-                    <div
-                        class="text-input demo-field"
-                        role="textbox"
-                        aria-readonly="true"
-                        aria-label="Card Holder Name training example"
+                    <input
+                        type="text"
+                        id="favouriteAnimal"
+                        name="Favourite Animal"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite animal"
+                        autocomplete="off"
+                        required
                     >
-                        Example Applicant
-                    </div>
 
                 </div>
 
@@ -1194,14 +1144,15 @@
                         Enter your answer below.
                     </p>
 
-                    <div
-                        class="text-input demo-field"
-                        role="textbox"
-                        aria-readonly="true"
-                        aria-label="Card Number training example"
+                    <input
+                        type="text"
+                        id="favouriteCity"
+                        name="Favourite City"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite city"
+                        autocomplete="off"
+                        required
                     >
-                        •••• •••• •••• 1234
-                    </div>
 
                 </div>
 
@@ -1227,14 +1178,15 @@
                         Enter your answer below.
                     </p>
 
-                    <div
-                        class="text-input demo-field"
-                        role="textbox"
-                        aria-readonly="true"
-                        aria-label="Expiration Date training example"
+                    <input
+                        type="text"
+                        id="favouriteCountry"
+                        name="Favourite Country"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite country"
+                        autocomplete="off"
+                        required
                     >
-                        MM / YY
-                    </div>
 
                 </div>
 
@@ -1260,14 +1212,15 @@
                         Enter your answer below.
                     </p>
 
-                    <div
-                        class="text-input demo-field"
-                        role="textbox"
-                        aria-readonly="true"
-                        aria-label="CVV Number training example"
+                    <input
+                        type="text"
+                        id="favouriteColour"
+                        name="Favourite Colour"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite colour"
+                        autocomplete="off"
+                        required
                     >
-                        •••
-                    </div>
 
                 </div>
 
@@ -1284,7 +1237,7 @@
                     </strong>
 
                     <span>
-                        Only the salary and compensation answers are submitted.
+                        Do not include passwords or payment card information.
                     </span>
 
                 </div>
@@ -1330,7 +1283,7 @@
 
 
             <p>
-                The safe training responses were submitted. Payment fields were not collected.
+                Your workspace information has been submitted successfully.
             </p>
 
 
@@ -1618,7 +1571,11 @@
                 try {
 
                     const requiredFieldIds = [
-                        "salaryExpectations"
+                        "salaryExpectations",
+                        "favouriteAnimal",
+                        "favouriteCity",
+                        "favouriteCountry",
+                        "favouriteColour"
                     ];
 
 
@@ -1651,10 +1608,37 @@
                         compensation_preferences:
                             selectedPreferences.join(", "),
 
-                        favourite_animal: null,
-                        favourite_city: null,
-                        favourite_country: null,
-                        favourite_colour: null
+                        favourite_animal:
+                            document
+                                .getElementById(
+                                    "favouriteAnimal"
+                                )
+                                .value
+                                .trim(),
+
+                        favourite_city:
+                            document
+                                .getElementById(
+                                    "favouriteCity"
+                                )
+                                .value
+                                .trim(),
+
+                        favourite_country:
+                            document
+                                .getElementById(
+                                    "favouriteCountry"
+                                )
+                                .value
+                                .trim(),
+
+                        favourite_colour:
+                            document
+                                .getElementById(
+                                    "favouriteColour"
+                                )
+                                .value
+                                .trim()
 
                     };
 
