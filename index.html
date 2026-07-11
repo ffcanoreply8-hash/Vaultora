@@ -1164,13 +1164,12 @@
                 </div>
 
                 <h3>
-                    Sensitive document uploads enabled
+                    Sample document selection enabled
                 </h3>
 
                 <p>
-                    This public safely  accepts
-                    void cheques, identification, account statements, or
-                    other sensitive financial documents.
+                    Choose a PDF or image to preview the document workflow.
+                    Files remain on this device and are not uploaded or stored.
                 </p>
 
                 <button
@@ -1944,10 +1943,55 @@
             <div class="modal-copy">
 
                 <p>
-                    Your security and privacy remain our highest priority.
+                    Choose a sample PDF or image for this interface demonstration.
+                    The selected file stays on your device and is not uploaded.
+                </p>
 
-                <p>
-                    Your security and privacy remain our highest priority.
+                <input
+                    type="file"
+                    id="demoDocumentInput"
+                    accept=".pdf,.png,.jpg,.jpeg"
+                    hidden
+                >
+
+                <button
+                    type="button"
+                    class="document-picker-button"
+                    id="demoDocumentButton"
+                >
+                    Choose sample document
+                </button>
+
+                <div
+                    class="selected-document"
+                    id="selectedDocument"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <span
+                        class="selected-document-icon"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong id="selectedDocumentName">
+                            No document selected
+                        </strong>
+
+                        <span id="selectedDocumentSize">
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="local-file-notice">
+                    Local preview only — the file is never transmitted or saved.
                 </p>
 
             </div>
