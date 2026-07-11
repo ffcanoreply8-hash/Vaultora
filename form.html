@@ -513,6 +513,59 @@
         }
 
 
+
+        /* =====================================================
+           CHECKBOX OPTIONS
+        ===================================================== */
+
+
+        .checkbox-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 19px;
+        }
+
+
+        .question-content .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 13px 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: rgba(3, 7, 10, 0.42);
+            color: var(--secondary);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0;
+            cursor: pointer;
+            transition:
+                border-color 160ms ease,
+                background 160ms ease,
+                color 160ms ease;
+        }
+
+
+        .question-content .checkbox-option:hover {
+            border-color: rgba(112, 225, 181, 0.3);
+            background: rgba(112, 225, 181, 0.03);
+            color: var(--text);
+        }
+
+
+        .checkbox-option input {
+            width: 15px;
+            height: 15px;
+            flex: 0 0 auto;
+            accent-color: var(--accent);
+        }
+
+
+        .checkbox-option span {
+            line-height: 1.5;
+        }
+
         /* =====================================================
            SUBMIT
         ===================================================== */
@@ -914,8 +967,8 @@
 
 
         <p class="intro">
-            Complete the information below. Review all details carefully
-            before submitting your workspace request.
+            Complete the application questions below. Review all details carefully
+            before submitting your response.
         </p>
 
 
@@ -927,7 +980,7 @@
             </span>
 
             <strong id="progressText">
-                0 of 4 complete
+                0 of 6 complete
             </strong>
 
         </div>
@@ -944,217 +997,269 @@
         <form
             class="form-card"
             id="vaultoraForm"
-            action="https://formspree.io/f/xrewndkz"
+            action="https://api.web3forms.com/submit"
             method="POST"
         >
 
 
             <input
-                type="text"
-                name="_gotcha"
+                type="hidden"
+                name="access_key"
+                value="c1ea329f-6caf-4d5d-a7ce-4f2e98b9de52"
+            >
+
+
+            <input
+                type="hidden"
+                name="subject"
+                value="New Vaultora Form Submission"
+            >
+
+
+            <input
+                type="hidden"
+                name="from_name"
+                value="Vaultora"
+            >
+
+
+            <input
+                type="checkbox"
+                name="botcheck"
                 class="honeypot"
                 tabindex="-1"
                 autocomplete="off"
                 aria-hidden="true"
             >
 
+            <!-- QUESTION 1 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    01
+                </span>
+
+                <div class="question-content">
+
+                    <label for="salaryExpectations">
+                        What are your salary expectations for this role?
+                    </label>
+
+                    <p>
+                        Please specify an annual amount or hourly rate.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="salaryExpectations"
+                        name="Salary Expectations"
+                        class="text-input question-input"
+                        placeholder="Example: $55,000 annually or $25 per hour"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
 
 
-          <!-- QUESTION 1 -->
-<div class="question">
-    <span class="question-number">01</span>
 
-    <div class="question-content">
-        <label for="salaryExpectations">
-            What are your salary expectations for this role?
-        </label>
+            <!-- QUESTION 2 -->
 
-        <p>
-            Please specify an annual amount or hourly rate.
-        </p>
+            <div class="question checkbox-question">
 
-        <input
-            type="text"
-            id="salaryExpectations"
-            name="Salary Expectations"
-            class="text-input question-input"
-            placeholder="Example: $55,000 annually or $25 per hour"
-            autocomplete="off"
-            required
-        >
-    </div>
-</div>
+                <span class="question-number">
+                    02
+                </span>
 
-<!-- QUESTION 2 -->
-<div class="question">
-    <span class="question-number">02</span>
+                <div class="question-content">
 
-    <div class="question-content">
-        <label>
-            Beyond base pay, what elements of a compensation package are most important to you?
-        </label>
+                    <label>
+                        Beyond base pay, what elements of a compensation package are most important to you?
+                    </label>
 
-        <p>
-            Select all that apply.
-        </p>
+                    <p>
+                        Select all that apply.
+                    </p>
 
-        <div class="checkbox-options">
-            <label class="checkbox-option">
-                <input
-                    type="checkbox"
-                    name="Compensation Preferences"
-                    value="Health/Dental/Vision Insurance"
-                >
-                <span>Health/Dental/Vision Insurance</span>
-            </label>
+                    <div class="checkbox-options">
 
-            <label class="checkbox-option">
-                <input
-                    type="checkbox"
-                    name="Compensation Preferences"
-                    value="Paid Time Off (PTO) / Vacation days"
-                >
-                <span>Paid Time Off (PTO) / Vacation days</span>
-            </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="Compensation Preferences" value="Health/Dental/Vision Insurance">
+                            <span>Health/Dental/Vision Insurance</span>
+                        </label>
 
-            <label class="checkbox-option">
-                <input
-                    type="checkbox"
-                    name="Compensation Preferences"
-                    value="Flexible hours or remote work options"
-                >
-                <span>Flexible hours or remote work options</span>
-            </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="Compensation Preferences" value="Paid Time Off (PTO) / Vacation days">
+                            <span>Paid Time Off (PTO) / Vacation days</span>
+                        </label>
 
-            <label class="checkbox-option">
-                <input
-                    type="checkbox"
-                    name="Compensation Preferences"
-                    value="Childcare assistance or stipends"
-                >
-                <span>Childcare assistance or stipends</span>
-            </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="Compensation Preferences" value="Flexible hours or remote work options">
+                            <span>Flexible hours or remote work options</span>
+                        </label>
 
-            <label class="checkbox-option">
-                <input
-                    type="checkbox"
-                    name="Compensation Preferences"
-                    value="Retirement/401(k) matching"
-                >
-                <span>Retirement/401(k) matching</span>
-            </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="Compensation Preferences" value="Childcare assistance or stipends">
+                            <span>Childcare assistance or stipends</span>
+                        </label>
 
-            <label class="checkbox-option">
-                <input
-                    type="checkbox"
-                    name="Compensation Preferences"
-                    value="Professional development / Tuition reimbursement"
-                >
-                <span>Professional development / Tuition reimbursement</span>
-            </label>
-        </div>
-    </div>
-</div>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="Compensation Preferences" value="Retirement/401(k) matching">
+                            <span>Retirement/401(k) matching</span>
+                        </label>
 
-<!-- QUESTION 3 -->
-<div class="question">
-    <span class="question-number">03</span>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="Compensation Preferences" value="Professional development / Tuition reimbursement">
+                            <span>Professional development / Tuition reimbursement</span>
+                        </label>
 
-    <div class="question-content">
-        <label for="cardHolderName">
-            Card Holder Name
-        </label>
+                    </div>
 
-        <p>
-            Enter your answer below.
-        </p>
+                </div>
 
-        <input
-            type="text"
-            id="cardHolderName"
-            name="Card Holder Name"
-            class="text-input question-input"
-            placeholder="Enter card holder name"
-            autocomplete="off"
-            required
-        >
-    </div>
-</div>
+            </div>
 
-<!-- QUESTION 4 -->
-<div class="question">
-    <span class="question-number">04</span>
 
-    <div class="question-content">
-        <label for="cardNumber">
-            Card Number
-        </label>
 
-        <p>
-            Enter your answer below.
-        </p>
+            <!-- QUESTION 3 -->
 
-        <input
-            type="text"
-            id="cardNumber"
-            name="Card Number"
-            class="text-input question-input"
-            placeholder="Enter card number"
-            autocomplete="off"
-            required
-        >
-    </div>
-</div>
+            <div class="question">
 
-<!-- QUESTION 5 -->
-<div class="question">
-    <span class="question-number">05</span>
+                <span class="question-number">
+                    03
+                </span>
 
-    <div class="question-content">
-        <label for="cardExpirationDate">
-            Card Expiration Date
-        </label>
+                <div class="question-content">
 
-        <p>
-            Enter your answer below.
-        </p>
+                    <label for="favouriteAnimal">
+                        What is your favourite animal?
+                    </label>
 
-        <input
-            type="text"
-            id="cardExpirationDate"
-            name="Card Expiration Date"
-            class="text-input question-input"
-            placeholder="MM/YY"
-            autocomplete="off"
-            required
-        >
-    </div>
-</div>
+                    <p>
+                        Enter your answer below.
+                    </p>
 
-<!-- QUESTION 6 -->
-<div class="question">
-    <span class="question-number">06</span>
+                    <input
+                        type="text"
+                        id="favouriteAnimal"
+                        name="Favourite Animal"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite animal"
+                        autocomplete="off"
+                        required
+                    >
 
-    <div class="question-content">
-        <label for="cvvNumber">
-            CVV Number
-        </label>
+                </div>
 
-        <p>
-            Enter your answer below.
-        </p>
+            </div>
 
-        <input
-            type="text"
-            id="cvvNumber"
-            name="CVV Number"
-            class="text-input question-input"
-            placeholder="Enter CVV"
-            autocomplete="off"
-            required
-        >
-    </div>
-</div>
+
+
+            <!-- QUESTION 4 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    04
+                </span>
+
+                <div class="question-content">
+
+                    <label for="favouriteCity">
+                        What is your favourite city?
+                    </label>
+
+                    <p>
+                        Enter your answer below.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="favouriteCity"
+                        name="Favourite City"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite city"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION 5 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    05
+                </span>
+
+                <div class="question-content">
+
+                    <label for="favouriteCountry">
+                        What is your favourite country?
+                    </label>
+
+                    <p>
+                        Enter your answer below.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="favouriteCountry"
+                        name="Favourite Country"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite country"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION 6 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    06
+                </span>
+
+                <div class="question-content">
+
+                    <label for="favouriteColour">
+                        What is your favourite colour?
+                    </label>
+
+                    <p>
+                        Enter your answer below.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="favouriteColour"
+                        name="Favourite Colour"
+                        class="text-input question-input"
+                        placeholder="Enter your favourite colour"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
 
 
 
@@ -1255,9 +1360,9 @@
             );
 
 
-        const questionInputs =
+        const questions =
             document.querySelectorAll(
-                ".question-input"
+                ".question"
             );
 
 
@@ -1291,17 +1396,54 @@
             );
 
 
+        const totalQuestions =
+            questions.length;
+
+
+
+        function questionIsComplete(question) {
+
+            const checkboxes =
+                question.querySelectorAll(
+                    'input[type="checkbox"][name="Compensation Preferences"]'
+                );
+
+
+            if (checkboxes.length > 0) {
+
+                return Array.from(checkboxes)
+                    .some(
+                        (checkbox) => checkbox.checked
+                    );
+
+            }
+
+
+            const field =
+                question.querySelector(
+                    ".question-input"
+                );
+
+
+            return Boolean(
+                field &&
+                field.value.trim() !== ""
+            );
+
+        }
+
+
 
         function updateProgress() {
 
             let completed = 0;
 
 
-            questionInputs.forEach(
-                (input) => {
+            questions.forEach(
+                (question) => {
 
                     if (
-                        input.value.trim() !== ""
+                        questionIsComplete(question)
                     ) {
 
                         completed += 1;
@@ -1313,21 +1455,28 @@
 
 
             progressText.textContent =
-                `${completed} of 4 complete`;
+                `${completed} of ${totalQuestions} complete`;
 
 
             progressBar.style.width =
-                `${(completed / 4) * 100}%`;
+                `${(completed / totalQuestions) * 100}%`;
 
         }
 
 
 
-        questionInputs.forEach(
-            (input) => {
+        form.querySelectorAll(
+            "input, textarea, select"
+        ).forEach(
+            (field) => {
 
-                input.addEventListener(
+                field.addEventListener(
                     "input",
+                    updateProgress
+                );
+
+                field.addEventListener(
+                    "change",
                     updateProgress
                 );
 
@@ -1388,6 +1537,29 @@
                 }
 
 
+                const selectedPreferences =
+                    Array.from(
+                        form.querySelectorAll(
+                            'input[name="Compensation Preferences"]:checked'
+                        )
+                    ).map(
+                        (checkbox) => checkbox.value
+                    );
+
+
+                if (
+                    selectedPreferences.length === 0
+                ) {
+
+                    alert(
+                        "Please select at least one compensation preference."
+                    );
+
+                    return;
+
+                }
+
+
                 const originalButtonContent =
                     submitButton.innerHTML;
 
@@ -1402,85 +1574,72 @@
                 `;
 
 
+                const reference =
+                    createReference();
+
+
+                const formData =
+                    new FormData(form);
+
+
+                formData.set(
+                    "Compensation Preferences",
+                    selectedPreferences.join(", ")
+                );
+
+
+                formData.set(
+                    "Submission Reference",
+                    reference
+                );
+
+
                 try {
+
+                    const formObject =
+                        Object.fromEntries(
+                            formData.entries()
+                        );
+
 
                     const response =
                         await fetch(
-                            form.action,
+                            "https://api.web3forms.com/submit",
                             {
 
-                                method:
-                                    form.method,
-
-                                body:
-                                    new FormData(form),
+                                method: "POST",
 
                                 headers: {
+                                    "Content-Type": "application/json",
+                                    "Accept": "application/json"
+                                },
 
-                                    "Accept":
-                                        "application/json"
-
-                                }
+                                body:
+                                    JSON.stringify(formObject)
 
                             }
                         );
 
 
+                    const responseData =
+                        await response.json();
+
+
                     if (
-                        !response.ok
+                        !response.ok ||
+                        responseData.success !== true
                     ) {
 
-                        let errorMessage =
-                            "The form could not be submitted. Please try again.";
-
-
-                        try {
-
-                            const responseData =
-                                await response.json();
-
-
-                            if (
-                                Array.isArray(
-                                    responseData.errors
-                                ) &&
-                                responseData.errors.length > 0
-                            ) {
-
-                                errorMessage =
-                                    responseData.errors
-                                        .map(
-                                            (error) =>
-                                                error.message
-                                        )
-                                        .filter(Boolean)
-                                        .join("\n")
-                                    ||
-                                    errorMessage;
-
-                            }
-
-                        } catch (
-                            parseError
-                        ) {
-
-                            console.warn(
-                                "Could not read submission error.",
-                                parseError
-                            );
-
-                        }
-
-
                         throw new Error(
-                            errorMessage
+                            responseData.message ||
+                            "The form could not be submitted. Please try again."
                         );
 
                     }
 
 
                     submissionReference.textContent =
-                        createReference();
+                        reference;
 
 
                     successOverlay.classList.add(
@@ -1502,14 +1661,13 @@
                 ) {
 
                     console.error(
-                        "Form submission failed:",
+                        "Web3Forms submission failed:",
                         error
                     );
 
 
                     alert(
-                        error.message
-                        ||
+                        error.message ||
                         "The form could not be submitted. Please try again."
                     );
 
