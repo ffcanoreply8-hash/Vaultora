@@ -265,62 +265,179 @@
 
             <div class="topbar-actions">
 
-                <!-- HEADER IMAGE SLOTS
-                     Add these files later inside your GitHub repository's images folder:
-                     images/header-image-1.png
-                     images/header-image-2.png
-                     images/header-image-3.png
-                -->
+                <!-- THREE SMALL HEADER IMAGE BOXES -->
                 <div
                     class="header-image-slots"
                     aria-label="Header images"
+                    style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                        gap: 6px;
+                        flex: 0 0 auto;
+                    "
                 >
 
-                    <div class="header-image-slot">
+                    <!-- IMAGE BOX 1 -->
+                    <div
+                        class="header-image-slot"
+                        style="
+                            position: relative;
+                            width: 32px;
+                            height: 32px;
+                            min-width: 32px;
+                            max-width: 32px;
+                            flex: 0 0 32px;
+                            overflow: hidden;
+                            display: grid;
+                            place-items: center;
+                            border: 1px solid rgba(255, 255, 255, 0.075);
+                            border-radius: 8px;
+                            background: rgba(255, 255, 255, 0.025);
+                        "
+                    >
                         <img
                             src="images/header-image-1.png"
                             alt="Header image 1"
-                            onload="this.nextElementSibling.hidden = true"
-                            onerror="this.hidden = true"
+                            style="
+                                position: absolute;
+                                inset: 0;
+                                width: 32px;
+                                height: 32px;
+                                min-width: 32px;
+                                max-width: 32px;
+                                min-height: 32px;
+                                max-height: 32px;
+                                object-fit: contain;
+                                display: block;
+                            "
+                            onload="this.nextElementSibling.style.display='none'"
+                            onerror="this.style.display='none'"
                         >
 
                         <span
                             class="header-image-placeholder"
                             aria-hidden="true"
+                            style="
+                                display: grid;
+                                place-items: center;
+                                width: 100%;
+                                height: 100%;
+                                color: #64717a;
+                                font-size: 15px;
+                                line-height: 1;
+                            "
                         >
                             +
                         </span>
                     </div>
 
 
-                    <div class="header-image-slot">
+                    <!-- IMAGE BOX 2 -->
+                    <div
+                        class="header-image-slot"
+                        style="
+                            position: relative;
+                            width: 32px;
+                            height: 32px;
+                            min-width: 32px;
+                            max-width: 32px;
+                            flex: 0 0 32px;
+                            overflow: hidden;
+                            display: grid;
+                            place-items: center;
+                            border: 1px solid rgba(255, 255, 255, 0.075);
+                            border-radius: 8px;
+                            background: rgba(255, 255, 255, 0.025);
+                        "
+                    >
                         <img
                             src="images/header-image-2.png"
                             alt="Header image 2"
-                            onload="this.nextElementSibling.hidden = true"
-                            onerror="this.hidden = true"
+                            style="
+                                position: absolute;
+                                inset: 0;
+                                width: 32px;
+                                height: 32px;
+                                min-width: 32px;
+                                max-width: 32px;
+                                min-height: 32px;
+                                max-height: 32px;
+                                object-fit: contain;
+                                display: block;
+                            "
+                            onload="this.nextElementSibling.style.display='none'"
+                            onerror="this.style.display='none'"
                         >
 
                         <span
                             class="header-image-placeholder"
                             aria-hidden="true"
+                            style="
+                                display: grid;
+                                place-items: center;
+                                width: 100%;
+                                height: 100%;
+                                color: #64717a;
+                                font-size: 15px;
+                                line-height: 1;
+                            "
                         >
                             +
                         </span>
                     </div>
 
 
-                    <div class="header-image-slot">
+                    <!-- IMAGE BOX 3 -->
+                    <div
+                        class="header-image-slot"
+                        style="
+                            position: relative;
+                            width: 32px;
+                            height: 32px;
+                            min-width: 32px;
+                            max-width: 32px;
+                            flex: 0 0 32px;
+                            overflow: hidden;
+                            display: grid;
+                            place-items: center;
+                            border: 1px solid rgba(255, 255, 255, 0.075);
+                            border-radius: 8px;
+                            background: rgba(255, 255, 255, 0.025);
+                        "
+                    >
                         <img
                             src="images/header-image-3.png"
                             alt="Header image 3"
-                            onload="this.nextElementSibling.hidden = true"
-                            onerror="this.hidden = true"
+                            style="
+                                position: absolute;
+                                inset: 0;
+                                width: 32px;
+                                height: 32px;
+                                min-width: 32px;
+                                max-width: 32px;
+                                min-height: 32px;
+                                max-height: 32px;
+                                object-fit: contain;
+                                display: block;
+                            "
+                            onload="this.nextElementSibling.style.display='none'"
+                            onerror="this.style.display='none'"
                         >
 
                         <span
                             class="header-image-placeholder"
                             aria-hidden="true"
+                            style="
+                                display: grid;
+                                place-items: center;
+                                width: 100%;
+                                height: 100%;
+                                color: #64717a;
+                                font-size: 15px;
+                                line-height: 1;
+                            "
                         >
                             +
                         </span>
