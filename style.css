@@ -569,6 +569,82 @@ svg {
 }
 
 
+/* =========================================================
+   HEADER IMAGE SLOTS
+========================================================= */
+
+.topbar-actions > .header-image-slots {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+
+    gap: 6px !important;
+
+    flex: 0 0 auto !important;
+}
+
+
+.header-image-slots > .header-image-slot {
+    position: relative !important;
+
+    width: 32px !important;
+    height: 32px !important;
+
+    min-width: 32px !important;
+    max-width: 32px !important;
+
+    min-height: 32px !important;
+    max-height: 32px !important;
+
+    flex: 0 0 32px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    overflow: hidden !important;
+
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+
+    background: rgba(255, 255, 255, 0.025) !important;
+}
+
+
+.header-image-slots > .header-image-slot > img {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 32px !important;
+    height: 32px !important;
+
+    min-width: 32px !important;
+    max-width: 32px !important;
+
+    min-height: 32px !important;
+    max-height: 32px !important;
+
+    object-fit: contain !important;
+
+    display: block;
+}
+
+
+.header-image-placeholder {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+    line-height: 1;
+}
+
+
 .connection-status {
     display: flex;
     align-items: center;
@@ -2859,6 +2935,11 @@ svg {
 
 
 @media (max-width: 680px) {
+
+    .header-image-slots {
+        display: none;
+    }
+
 
     .demo-banner {
         justify-content: flex-start;
